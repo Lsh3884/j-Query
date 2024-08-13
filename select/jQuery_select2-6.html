@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>탐색 선택자6</title>
+    <script src="jquery-1.10.2.min.js"></script>
+  </head>
+  <body>
+    <script>
+      $(function () {
+        const arr1 = ["서울", "대전", "부산", "전주"];
+        const arr2 = ["한국", "미국", "일본", "중국"];
+        const obj = {
+         "name":"정부장", 
+         "area":"서울"
+      }
+      const idxNum = $.inArray("부산" ,arr1)
+      // console.log(idxNum);
+      
+      const idxNum2 = $.inArray("한국" ,arr2)
+      // console.log(idxNum2);
+
+      const okArr1 = $.inArray(arr1)
+      const okArr2 = $.inArray(arr2)
+      // console.log(okArr1);
+
+      // $.merge()두개를 병합
+      $.merge(arr2 , arr1)
+      console.log(arr2);
+      
+      
+      });
+    </script>
+  </body>
+</html>
