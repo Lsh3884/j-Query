@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>닫기 팝업창</title>
+    <script src="jquery-1.10.2.min copy.js"></script>
+    <script src="cookie.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      #notice_wrap {
+        position: absolute;
+        left: 30px;
+        top: 30px;
+        box-shadow: 0 0 8px #000;
+      }
+      #notice_wrap img {
+        width: 100%;
+      }
+      .closeWrap {
+        background-color: #000;
+        color: #fff;
+        text-align: center;
+        padding: 5px 10px;
+      }
+      .closeWrap button {
+        margin-left: 20px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="notice_wrap">
+      <img src="images/pic_2.jpg" alt="이미지1" />
+      <p class="closeWrap">
+        <input type="checkbox" name="chk" id="chk" />
+        <label for="chk">3일 동안 열지 않기</label>
+        <button class="closeBtn">닫기</button>
+      </p>
+    </div>
+
+    <script>
+      $(function () {
+        const chk = $("#chk");
+        // 새로고침해고 팝업을 안보이게 하는 코드
+        if($.cookie("3popup") == "none"){
+            $("#notice_wrap").hide()
+        }
+        $(".closeBtn").on("click", function () {
+          // 3일동안 이 창 열지 않시
+          if (chk.is(":checked")) {
+            // 3popup라는 이름의 쿠키를 설정
+            $.cookie("3popup", "none", { expires: 1, path: "/" });
+          }
+          $("#notice_wrap").fadeOut("fast")
+        });
+      });
+    </script>
+  </body>
+</html>
