@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="js/jquery-1.10.2.min copy.js"></script>
+    <script src="js/jquery-ui-1.10.4.custom.min.js"></script>
+    <link rel="stylesheet" href="css/jquery-ui.min.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        list-style: none;
+      }
+      body {
+        font: 14px Malgun Gothic, "맑은고딕", sans-serif;
+        color: #555;
+      }
+      #productGallery img {
+        width: 150px;
+        height: 150px;
+        margin: 10px;
+        cursor: pointer;
+        border: 2px solid #ddd;
+      }
+      #productGallery img:hover {
+        border-color: #333;
+      }
+      #productDc {
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        width: 300px;
+        min-height: 50px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>제품갤러리</h1>
+    <div id="productGallery">
+      <img src="images/pic_1.jpg" alt="제품 1" data-description="제품 1은 최신 기술을 사용하여 제작되었습니다." />
+      <img src="images/pic_2.jpg" alt="제품 2" data-description="제품 2은 최신 기술을 사용하여 제작되었습니다." />
+      <img src="images/pic_3.jpg" alt="제품 3" data-description="제품 3은 최신 기술을 사용하여 제작되었습니다." />
+    </div>
+    <div id="productDc">여기에 제품 설명이 나타납니다.</div>
+
+    <script>
+      $(function () {
+        $("#productGallery img").on("click", function () {
+          const dataDc = $(this).data("description");
+          const imgSrc = $(this).attr("src");
+          const imgAlt = $(this).attr("alt");
+          // 기존 설명은 지우기 empty()
+          $("#productDc").empty();
+          // $("#productDc").text(dataDc)
+          // 이미지랑 설명 추가
+          const content = ` <img src="${imgSrc}" alt="${imgAlt}">
+          <p>${dataDc}</p>`;
+
+          $("#productDc").html(content)
+        });
+      });
+    </script>
+  </body>
+</html>

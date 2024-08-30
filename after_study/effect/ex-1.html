@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>effect</title>
+    <script src="jquery-1.10.2.min.js"></script>
+
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: #3498db;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+    <button id="show-box">Show Box</button>
+    <button id="hide-box">Hide Box</button>
+
+    <script>
+      $(function () {
+        $("#show-box").on("click", function () {
+          $(".box").fadeIn();
+        });
+        $("#hide-box").on("click", function () {
+          $(".box").fadeOut();
+        });
+      });
+    </script>
+  </body>
+</html>

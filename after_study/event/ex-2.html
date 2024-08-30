@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>event</title>
+    <script src="jquery-1.10.2.min.js"></script>
+
+    <style>
+      .highlight {
+        background-color: aquamarine;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    <input type="text" id="text-input" placeholder="Press Enter" />
+
+    <script>
+      $(function () {
+        $("ul").on("click", "li", function () {
+          $(this).toggleClass("highlight");
+        });
+        $(document).keydown(function (e) {
+          if (e.which == 13) {
+            alert("키코드 enter");
+          }else{
+            alert("enter를 눌러주세요")
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
