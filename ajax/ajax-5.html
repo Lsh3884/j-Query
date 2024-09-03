@@ -18,7 +18,7 @@
             $("#result").html(data)
           }).fail(function (xhr, status, error) {
             console.log(xhr);
-            
+            $("#result").html(`Errpr : ${status} - ${error}`)
           });
         });
       });
